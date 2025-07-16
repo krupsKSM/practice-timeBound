@@ -5,18 +5,20 @@ import {AuthContext} from "../../context/AuthContext"
 export default function LoginForm(){
 
     const {auth , login} = useContext(AuthContext)
+
     const [formData, setFormData] = useState({
         username: "",
         email: "",
         password: "",
+        rememberMe: false,
     })
 
     const handleChange = (e) =>{
-        const {name, value} = e.target 
+        const {name, value , type , checked} = e.target 
 
         setFormData(prev => ({
             ...prev,
-            [name] : value,
+            [name] : type === "checkbox" ? checked : value,
         }))
     }
     
@@ -45,6 +47,13 @@ export default function LoginForm(){
             <label>password</label>
             <input type = "password" name ="password" value = {formData.password} 
             onChange= {handleChange} required />
+        </div>
+
+        <div>
+            <label>
+            <input type="checkbox" name = "rememberMe" checked= {formData.rememberMe} onChange = {handleChange} />
+                Remember Me
+            </label>
         </div>
 
         <button type = "submit">SUBMIT</button>
