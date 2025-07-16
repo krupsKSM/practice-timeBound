@@ -22,7 +22,8 @@
 
 import React, {useContext} from "react"
 import {ThemeContext} from "./context/ThemeContext"
-import Header from "./components/Header"
+import Header from "./components/theme/Header"
+import LoginForm from "./components/loginForm/LoginForm"
 export default function App () {
   const {theme} = useContext(ThemeContext)
   return (
@@ -30,6 +31,7 @@ export default function App () {
       <div style = {{backgroundColor: theme === "light" ? "white" : "black",
     color: theme === "light" ? "black" : "white", height: "100vh" , width: "100vw"}}>
       <Header/>
+      <LoginForm/>
       </div>
 
       
