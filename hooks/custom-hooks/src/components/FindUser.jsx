@@ -11,7 +11,7 @@ const FindUser = () => {
             <form>
                 <div className='form-group'>
                     <label htmlFor='username'>Enter github username: </label>
-                    <input type="text" placeholder="Enter Username"
+                    <input type="text" placeholder="Enter Username" id="username"
                         onChange={event => setUsername(event.target.value)} />
 
                 </div>
